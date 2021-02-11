@@ -8,7 +8,6 @@ $("#green").hover(function(){
   $(this).css({"border-radius": "0%"}).children("h4").text("now I'm a square");
   }, function(){
   $(this).css({"border-radius": ""}).children("h4").text("convert me to a square");
-
 });
 
 $("#alice").hover(function(){
@@ -66,6 +65,7 @@ $('#orange').hover(function() {
     );
 });
 
+// create an array of objects
 myText = [
   {magictext:'I am an 84-year-old gentleman who stands 5’4” tall from the basketball-crazy state of Indiana. Recently, my wife and I were having dinner at a local restaurant. ',
     title: 'hover on me to read the first part of a text'},
@@ -75,37 +75,17 @@ myText = [
     title: 'hover on me to finish reading the text'}
 ]
 
+// insert circles with append and iterate over array of objects to insert content
 myText.forEach(function(elements){
   $('.row').append(`
     <div class="box2" data-title='${elements.title}' data-magictext='${elements.magictext}'>
         <h4>${elements.title}</h4>
-    </div>
-`)
+    </div>`)
 })
 
+// define hover function for newly created circles
 $(".box2").hover(function(){
     $(this).children("h4").text($(this).data('magictext'));
     }, function(){
     $(this).children("h4").text($(this).data('title'));
   })
-
-// old version
-
-/*
-myText.forEach(function(elements){
-  $('.row').append(`
-    <div class="box2">
-        <h4>${elements.title}</h4>
-    </div>
-`)
-})
-
-
-myText.forEach(function(elements){
-  $(".box2").hover(function(){
-    $(this).children("h4").text(`${elements.magictext}`);
-    }, function(){
-    $(this).children("h4").text(`${elements.title}`);
-  })
-})
-*/
